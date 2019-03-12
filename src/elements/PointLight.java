@@ -67,6 +67,6 @@ public class PointLight extends Light implements LightSource {
 	 * @return the direction vector
 	 */
 	public Vector getD(Point3D point) {
-		return point.subtract(_position).normalization();
+		return getL(point);
 	}
 }

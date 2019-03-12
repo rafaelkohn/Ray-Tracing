@@ -143,23 +143,28 @@ public class Color {
 		double r = _r + color._r;
 		double g = _g + color._g;
 		double b = _b + color._b;
-		if(r>255)
+/*		if(r>255)
 			r=255;
 		if(g>255)
 			g=255;
 		if(b>255)
-			b=255;
+			b=255;*/
 		return new Color(r, g, b);
 	}
 	
 	/**
-	 * receives to colors and adds them one to another
-	 * @param color1 the first color, as base
-	 * @param color2 the second color added to the first
-	 * @return the new color
+	 * adds the colors to the this one
+	 * @param colors the colors
+	 * @return the sum of the colors
 	 */
-	public Color add(Color color1 , Color color2) {
-		return add(color1.add(color2));
+	public Color add(Color... colors) {
+		double sumR=_r,sumG=_g,sumB=_b;
+		for (Color tmp : colors) {
+			sumR += tmp._r;
+			sumG += tmp._g;
+			sumB += tmp._b;
+		}
+		return new Color(sumR,sumG,sumB);
 	}
 
 	/**
@@ -170,16 +175,7 @@ public class Color {
 	public Color scale(double scalar) {
 		if(scalar == 0)
 			return Color.BLACK;
-		double r = _r * scalar;
-		double g = _g * scalar;
-		double b = _b * scalar;
-		if(r>255)
-			r=255;
-		if(g>255)
-			g=255;
-		if(b>255)
-			b=255;
-		return new Color(r, g, b);
+		return new Color(_r * scalar, _g * scalar, _b * scalar);
 	}
 
 	/**
@@ -189,5 +185,24 @@ public class Color {
 	 */
 	public Color reduce(double scalar) {
 		return scale(1/scalar);
+	}
+	
+	// ***************** Administration ******************** //
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof Color))
+			return false;
+		Color other = (Color) obj;
+		return (_r==other._r && _g == other._g && _b ==other._b );
+	}
+
+	@Override
+	public String toString() {
+		return "(" + _r + "," + _g + "," + _b + ")";
 	}
 }
