@@ -7,7 +7,7 @@ Java ray tracer using the phong model.
 ### Features Of The Code:
 **Implemented:**
 * Lighting
-* Shadow
+* Shadows
 * Reflections
 * Refraction
 * Glossy Surfaces
