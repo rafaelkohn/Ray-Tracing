@@ -16,7 +16,7 @@ class CircleTest {
 
 	@Test
 	public void testNormal() {
-		Circle cir = new Circle(1,new Point3D(1,1,1),new Vector(0,0,-1),Color.WHITE,new Material(1,1,1));
+		Circle cir = new Circle(1,new Point3D(1,1,1),new Vector(0,0,-1),Color.WHITE,new Material(1,1,1,1,1));
 		assertEquals(
 				  new Vector(0, 0, -1),
 				  cir.getNormal(Point3D.ZERO),
@@ -25,7 +25,7 @@ class CircleTest {
 	
 	@Test
 	public void testFindIntersections() {
-		Circle cir = new Circle(1,Point3D.ZERO,new Vector(0,0,-1),Color.WHITE,new Material(1,1,1));
+		Circle cir = new Circle(1,Point3D.ZERO,new Vector(0,0,-1),Color.WHITE,new Material(1,1,1,1,1));
 		//VBA 1 - ray intersects with the circle at the center
 		Map<Geometry,List<Point3D>> map = new HashMap<>();
 		List<Point3D> li = new ArrayList<Point3D>();

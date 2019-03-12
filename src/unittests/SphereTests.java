@@ -15,13 +15,13 @@ public class SphereTests {
 
 	@Test
 	public void testNormal() {
-		Sphere s = new Sphere(5, Point3D.ZERO,Color.WHITE,new Material(1,1,1));
+		Sphere s = new Sphere(5, Point3D.ZERO,Color.WHITE,new Material(1,1,0,0,1));
 		assertEquals(new Vector(new Point3D(0, 0, 1)), s.getNormal(new Point3D(0, 0, 5)), "Bad GetNormal");
 	}
 
 	@Test
 	public void testFindIntersections() {
-		Sphere s = new Sphere(1, Point3D.ZERO,Color.WHITE,new Material(1,1,1));
+		Sphere s = new Sphere(1, Point3D.ZERO,Color.WHITE,new Material(1,1,0,0,1));
 		Map<Geometry,List<Point3D>> map = new HashMap<>();
 		List<Point3D> li = new ArrayList<Point3D>();
 		// EP 1 -regular 2 intersections

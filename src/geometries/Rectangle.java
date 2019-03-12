@@ -104,10 +104,10 @@ public class Rectangle extends Plane {
 			return null;
 		Vector vDiagonal = head.subtract(_p);
 		double check = vDiagonal.dotProduct(_vRightNormalized);
-		if (check <= 0 || check >= _vRight.length())
+		if (check < 0 || check > _vRight.length())
 			return null;
 		check = vDiagonal.dotProduct(_vUpNormalized);
-		if (check <= 0 || check >= _vUp.length())
+		if (check < 0 || check > _vUp.length())
 			return null;
 		return map;
 	}

@@ -14,29 +14,29 @@ class CameraTest {
 		Ray ray;
 
 		// size of 3*3 pixels
-		// הקרן הנחתכת בפיקסל שבאחד הקודקודים
+		//the ray crosses one of the diagonal edges
 		vector = new Vector(1, -1, -2);
 		ray = new Ray(p0, vector);
 		assertEquals(ray, camera.constructRayThroughPixel(3, 3, 1, 1, 2, 3, 3),"bad constructRayThroughPixel 3x3 crossing one of the diagonal edges");
-		// view plane-הקרן שנחתכת באמצע ה
+		//the ray crosses the center of the view plane
 		vector = new Vector(0, 0, -2);
 		ray = new Ray(p0, vector);
 		assertEquals(ray, camera.constructRayThroughPixel(3, 3, 2, 2, 2, 3, 3),"bad constructRayThroughPixel 3x3 crossing the center of the view plane");
-		// הקרן הנחתכת באחד מהפיקסלים שבין אחד הקודקודים לאמצע
+		//the ray crosses one of the regular edges
 		vector = new Vector(1, 0, -2);
 		ray = new Ray(p0, vector);
 		assertEquals(ray, camera.constructRayThroughPixel(3, 3, 1, 2, 2, 3, 3),"bad constructRayThroughPixel 3x3 crossing one of the regular edges");
 
 		// size of 4*4 pixels
-		// הקרן הנחתכת בפיקסל שבאחד הקודקודים
+		//the ray crosses one of the diagonal edges
 		vector = new Vector(1.5, -1.5, -2);
 		ray = new Ray(p0, vector);
 		assertEquals(ray, camera.constructRayThroughPixel(4, 4, 1, 1, 2, 4, 4),"bad constructRayThroughPixel 4x4 crossing one of the diagonal edges");
-		// view plane-הקרן שנחתכת באמצע ה
+		//the ray crosses the center of the view plane
 		vector = new Vector(0.5, -0.5, -2);
 		ray = new Ray(p0, vector);
 		assertEquals(ray, camera.constructRayThroughPixel(4, 4, 2, 2, 2, 4, 4),"bad constructRayThroughPixel 4x4 crossing the center of the view plane");
-		// הקרן הנחתכת באחד מהפיקסלים שבין אחד הקודקודים לאמצע
+		//the ray crosses one of the regular edges
 		vector = new Vector(-0.5, -1.5, -2);
 		ray = new Ray(p0, vector);
 		assertEquals(ray, camera.constructRayThroughPixel(4, 4, 3, 1, 2, 4, 4),"bad constructRayThroughPixel 4x4 crossing one of the regular edges");

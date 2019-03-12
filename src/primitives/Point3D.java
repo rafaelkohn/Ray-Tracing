@@ -45,7 +45,7 @@ public class Point3D extends Point2D {
 	 * Z coordinate getter
 	 * @return the Z coordinate
 	 */
-	public Coordinate get_zCoordinate() {
+	public Coordinate get_z() {
 		return this._z;
 	}
 	
@@ -66,7 +66,7 @@ public class Point3D extends Point2D {
 
 	@Override
 	public String toString() {
-		return super.toString() + "," + _z;
+		return "(" + super.toString() + "," + _z + ")";
 	}
 
 	// ***************** Operations ******************** //

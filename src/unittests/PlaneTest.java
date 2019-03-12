@@ -15,7 +15,7 @@ public class PlaneTest {
 
 	@Test
 	public void testNormal() {
-		 Plane p = new Plane(new Point3D(1,1,1),new Vector(0,0,-1),Color.WHITE,new Material(1,1,1));
+		 Plane p = new Plane(new Point3D(1,1,1),new Vector(0,0,-1),Color.WHITE,new Material(1,1,0,0,1));
 			assertEquals(
 					  new Vector(0, 0, -1),
 					  p.getNormal(Point3D.ZERO),
@@ -23,7 +23,7 @@ public class PlaneTest {
 	}
 	@Test
 	public void testFindIntersections() {
-		Plane p = new Plane( Point3D.ZERO , new Vector(0,0,1),Color.WHITE,new Material(1,1,1));
+		Plane p = new Plane( Point3D.ZERO , new Vector(0,0,1),Color.WHITE,new Material(1,1,0,0,1));
 		//EP-1 -Ray intersects the plane
 		Ray interay = new Ray(new Point3D(1,1,1) , new Vector(1,1,-1));
 		List<Point3D> li = new ArrayList<Point3D>();

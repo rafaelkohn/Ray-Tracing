@@ -17,9 +17,9 @@ import scene.Scene;
 class DirectionalLightTest {
 
 	@Test
-	public void DirectionalLightingRendering() {
+	public void DirectionalLightingRendering() throws InterruptedException {
 		Scene scene = new Scene("Test scene");
-		Material material = new Material(0.9,0.3,2);
+		Material material = new Material(0.9,0.3,0,0,2);
 		scene.setCamera(new Camera(new Point3D(0, 0, 0), new Vector(0, 0, 1), new Vector(0, -1, 0)));
 		scene.setDistance(100);
 		scene.setBackground(new Color(java.awt.Color.DARK_GRAY));
