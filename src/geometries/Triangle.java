@@ -73,17 +73,22 @@ public class Triangle extends Plane {
 			return null;
 		Point3D Pt = map.get(this).get(0);
 		double d1, d2, d3;
-		Vector v1 = new Vector(_p1.subtract(rl.get_p0()));
-		Vector v2 = new Vector(_p2.subtract(rl.get_p0()));
-		Vector v3 = new Vector(_p3.subtract(rl.get_p0()));
-		Vector N1 = v1.crossproduct(v2).normalization();
-		Vector N2 = v2.crossproduct(v3);
-		N2.normalization();
-		Vector N3 = v3.crossproduct(v1);
-		N3.normalization();
-		d1 = Pt.subtract(rl.get_p0()).dotProduct(N1);
-		d2 = Pt.subtract(rl.get_p0()).dotProduct(N2);
-		d3 = Pt.subtract(rl.get_p0()).dotProduct(N3);
+		try {
+			Vector v1 = new Vector(_p1.subtract(rl.get_p0()));
+			Vector v2 = new Vector(_p2.subtract(rl.get_p0()));
+			Vector v3 = new Vector(_p3.subtract(rl.get_p0()));
+			Vector N1 = v1.crossproduct(v2).normalization();
+			Vector N2 = v2.crossproduct(v3);
+			N2.normalization();
+			Vector N3 = v3.crossproduct(v1);
+			N3.normalization();
+			d1 = Pt.subtract(rl.get_p0()).dotProduct(N1);
+			d2 = Pt.subtract(rl.get_p0()).dotProduct(N2);
+			d3 = Pt.subtract(rl.get_p0()).dotProduct(N3);
+		}
+		catch(IllegalArgumentException e) {
+			return null;
+		}
 		if (d1 > 0.0 && d2 > 0.0 && d3 > 0.0)
 			return map;
 		if (d1 < 0.0 && d2 < 0.0 && d3 < 0.0)

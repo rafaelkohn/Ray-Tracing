@@ -29,6 +29,14 @@ public class Circle extends Plane {
 	// ***************** Getters/Setters ********************** //
 
 	/**
+	 * Center Point getter
+	 * @return the center of the circle
+	 */
+	public Point3D getCenter() {
+		return get_p();
+	}
+	
+	/**
 	 * radius getter
 	 * 
 	 * @return the radius of the circle
@@ -48,9 +56,11 @@ public class Circle extends Plane {
 	@Override
 	public Map<Geometry, List<Point3D>> findIntersections(Ray rl) {
 		Map<Geometry, List<Point3D>> map = super.findIntersections(rl);
-		double dis = map.get(this).get(0).distance(_p);
-		if (dis >= 0 && dis < _radius)
-			return map;
+		if(map != null) {
+			double dis = map.get(this).get(0).distance(_p);
+			if (dis < _radius)
+				return map;
+		}
 		return null;
 	}
 }
