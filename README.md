@@ -14,7 +14,7 @@ Java ray tracer using the phong model.
 * Diffusive Glass
 * MultiThreading
 
-** not yet implemented:**
+**not yet implemented:**
 #### Performance
 * Regular Grid
 * Adaptive Grid
